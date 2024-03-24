@@ -8,9 +8,9 @@ Group name: Fire Ferrets.
 
 ## Pages & Functionality
 **This website consists of:** <br>
-- Landing page<br>
-- Settings page<br>
-- Personal homepage (timer, task manager)<br>
-- Sign Up page<br>
-- Log In page<br>
-- Forum page (plus an individual page for each thread)<br>
+- Landing page - Overview of the website!<br>
+- Settings page - Account info management and profile editting<br>
+- Personal homepage - Timer, task manager<br>
+- Sign Up page - Create an account forum<br>
+- Log In page - Log in to your account forum<br>
+- Forum page (plus an individual page for each thread) - Create posts where others can comment on!<br>
