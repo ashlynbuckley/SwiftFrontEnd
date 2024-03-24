@@ -30,22 +30,22 @@
 
 <body>
     <header>
-        <a href = "landing.html" class = "logo">Swift</a>
+        <a href = "landing/landing.html" class = "logo">
+            <img src="images/logo.png" class="logoImg">
+            Swift
+            </a>
         <ul class = "navlist">
-            <li><a href = "personal.html">Timer/Tasks</a></li>
-            <li><a href = "forum.html">Forum</a></li>
-            <li class="account-dropdown"><a href = "signUp.html">Account</a>
-                <div class="content">
-                    <a href="settings.html">Account Details</a>
-                    <a href="signUp.html" id="temp">Sign Up</a>
-                </div>
-            </li>
+            <li><a href = "personal/personal.html">Timer/Tasks</a></li>
+            <li><a href = "#">Forum</a></li>
         </ul>
-    
-        <div class="bx bx-menu" id = "menu-icon"></div> 
-
+        <div class="dropdown">
+            <button class="dropbtn">Account</button>
+            <div class="dropdown-content">
+              <a href="settings/settings.html">Account Settings</a>
+              <a href="#">Log Out</a>
+            </div>
+          </div>
     </header>
-
     <section class="login" id="Page1">
         <h2>Sign up</h2>
         <div>
@@ -62,7 +62,7 @@
                 <ion-icon name="body-outline"></ion-icon>
             </span>
         </div>
-        <p>Already have an account? <a href="Login.html">Log in!</a></p>
+        <p>Already have an account? <a href="logIn/logIn.html">Log in!</a></p>
 
         <button type="button" id="test" onclick="Next1();">Next</button>
     </section>
@@ -119,14 +119,14 @@
         <div>
             Get started with our timer and task manager by clicking below:
         </div>
-        <a href="timer.html">Timer</a>&nbsp &nbsp &nbsp
-        <a href="tasks.html">Tasks</a>
+        <a href="personal/personal.html">Visit your Personal Homepage!</a>&nbsp &nbsp &nbsp
 
     </section>
 
 
 </body>
-<script src="main.js"></script>
+<!-- JS links -->
+<script src="signUp/signUp.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
