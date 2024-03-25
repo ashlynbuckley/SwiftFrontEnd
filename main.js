@@ -48,7 +48,7 @@ document.getElementById("no").addEventListener('click',function(event){
     document.getElementById("temp").href = "landing.html";
 })
 
-//task manager
+// Task manager
 function addTask(){
     if(inputBox.value === ''){
         alert("You must write something!"); 
