@@ -41,8 +41,9 @@ body{
 
 /* Log out  */
 .login{
-    margin: 200px 0 0 35%;
-    width:  300px;
+    margin: 200px 0 0 30%;
+    width:  500px;
+    height: 300px;
     padding: 30px 40px 30px 40px;
     border: 7px #144A33 solid;
     border-radius: 20px;
@@ -50,7 +51,6 @@ body{
     font-size: 20px;
     text-align: center;
 }
-
 .login input[type="text"] {
     border-radius: 20px; 
     padding: 5px; 
@@ -60,6 +60,7 @@ body{
 .logInButton {
     display: inline-block; 
     color: white; 
+    margin-top: 10px;
     background: #78a089; 
     border: 1px solid transparent; 
     padding: 12px 30px;
@@ -73,16 +74,7 @@ body{
     cursor: pointer;  
 }
 
-.signUpSign {
-    font-size: 40px;
-    margin-bottom: 30   px;
-    margin-top: 22px;   
-}
-.signUpComplete {
-    text-align:center;
-    color: white;
-    font-size: 20px;
-}
+
  /* Navigation Bar */
  .navlist{
     display: flex;

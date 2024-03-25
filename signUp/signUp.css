@@ -21,3 +21,16 @@
 #done {
     display:none;
 } 
+
+/* the box itself */
+
+.signUpSign {
+    font-size: 40px;
+    margin-bottom: 30px;
+    margin-top: 22px;   
+}
+.signUpComplete {
+    text-align:center;
+    color: white;
+    font-size: 20px;
+}
