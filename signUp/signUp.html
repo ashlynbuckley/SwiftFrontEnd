@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/main.css">
     
 
+
     <!--Boxicons link-->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
@@ -47,12 +48,12 @@
             <button class="dropbtn">Account</button>
             <div class="dropdown-content">
               <a href="/settings/settings.html">Account Settings</a>
-                <a href="/signUp/signUp.html" id="temp" name="signUp" onClick="loggedOut()">Sign Up</a>
+                <a href="/signUp/signUp.html" name="signUp" onClick="loggedOut()">Sign Up</a>
             </div>
           </div>
     </header>
     <section class="login" id="Page1">
-        <h2>Sign up</h2>
+        <h2 class="signUpSign">Sign Up</h2>
         <div>
             <label>First Name</label>
             <input type="text" id="fname">
@@ -60,7 +61,7 @@
                 <ion-icon name="accessibility-outline"></ion-icon>
             </span>
         </div>
-        <div>
+        <div style="margin-top:15px">
             <label>Last Name</label>
             <input type="text" id="lname">
             <span>
@@ -69,11 +70,11 @@
         </div>
         <p>Already have an account? <a href="/logIn/logIn.html">Log in!</a></p>
 
-        <button type="button" id="test" onclick="Next1();">Next</button>
+        <button type="button" class="logInButton" id="test" onclick="Next1();">Next</button>
     </section>
 
     <section class="login" id="Page2">
-        <h2>Sign up</h2>
+        <h2 class="signUpSign">Sign Up</h2>
         <div>
             <label>Email Address</label>
             <input type="text" id="email">
@@ -82,8 +83,8 @@
             </span>
             <div id="resEmail" class="error"></div>
         </div>
-        <div>
-            <label>Password</label>
+        <div style="margin-top:15px">
+            <label style="padding: 18px;">Password</label>
             <input type="text" id="password">
             <span>
                 <ion-icon name="lock-closed-outline"></ion-icon>
@@ -91,38 +92,37 @@
             <div id="resPwd" class="error"></div>
         </div>
         <br>
-        <button type="button" onclick="Back1();">Back</button>
-        <button type="button" onclick="Next2();">Next</button>
+        <button type="button" class="logInButton" onclick="Back1();">Back</button>
+        <button type="button" class="logInButton" onclick="Next2();">Next</button>
     </section>
 
     <section class="login" id="Page3">
-        <h2>Sign up</h2>
+        <h2 class="signUpSign">Sign Up</h2>
         <div>
             <label>Username </label>
             <input type="text" id="username">
             <span></span>
         </div>
-        <div>
-            <label>Age</label>
-            <br>
+        <div style="margin-top:15px">
+            <label style="padding: 27px">Age</label>
             <input type="text" id="age">
             <span></span>
         </div>
         <br>
-        <button type="button" onclick="Back2();">Back</button>
-        <button type="button" id="signup">Create Account</button>
+        <button type="button" class="logInButton" onclick="Back2();">Back</button>
+        <button type="button" class="logInButton" id="signup">Create Account</button>
     </section>
 
-    <section class="done" id="done">
+    <section class="signUpComplete" id="done">
         <h2>
             Sign Up Complete!
         </h2>
         <div>
-            Welcome to our Swift study website! We're so happy to have you join us today :)
+            Welcome to our Swift! Thank you for joining the nest.
         </div>
         <br>
         <div>
-            Get started with our timer and task manager by clicking below:
+            To get started with our timer and task manager, click the link below:<br><br>    
         </div>
         <a href="/personal/personal.html">Visit your Personal Homepage!</a>&nbsp &nbsp &nbsp
 
