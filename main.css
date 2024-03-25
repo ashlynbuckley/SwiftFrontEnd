@@ -1,13 +1,14 @@
 /* General Website CSS */
 *{
+    text-decoration: none;
+    list-style: none;
+    font-family: 'Cabin', sans-serif;
+   
+}
+header{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    font-family: 'Cabin', sans-serif;
-    list-style: none;
-    text-decoration: none;
-}
-header{
     position: fixed;
     right: 0;
     top: 0;
@@ -36,6 +37,16 @@ body{
     padding-right: 20px;
     max-width: 5em;
     height: auto;
+}
+
+/* Log out  */
+.login{
+    margin: 200px 0 0 35%;
+    width:  200px;
+    padding: 30px 40px 30px 40px;
+    border: 10px #144A33 solid;
+    border-radius: 15px;
+    background-color:#ccc;
 }
 
  /* Navigation Bar */
@@ -518,42 +529,6 @@ section{
     align-items: center;
     justify-content: center;
 }
-
-
-
-/* Sign Up or Log in */
-.login{
-    margin: 200px 0 0 35%;
-    width:  200px;
-    padding: 30px 40px 30px 40px;
-    border: 10px #144A33 solid;
-    border-radius: 15px;
-    background-color:#ccc;
-}
-
-.done{
-    margin: 200px 0 0 35%;
-    width:  250px;
-    padding: 30px 40px 30px 40px;
-    border: 10px #144A33 solid;
-    border-radius: 18px;
-    background-color:#ccc;
-}
-.login a:visited{color:#144A33;}
-
-#Page1 {
-    display:block;
-}
-#Page2 {
-    display:none;
-}
-#Page3 {
-    display:none;
-}
-#done {
-    display:none;
-} 
-
 
 /* Footer Section */
 footer{
