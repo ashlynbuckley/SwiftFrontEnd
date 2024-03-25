@@ -6,7 +6,7 @@
         <meta charset = "utf-8">
         <meta name = "viewport" content = "width = device-width, initial-scale = 1">
         <meta name="description" content="Landing page for the website, describes all the functions">
-        <meta name = author content="Avalon Brathwaite">
+<meta name = author content="Avalon Brathwaite">
         
         <!--Custom Css link-->
         <link rel = "stylesheet" type = "text/css" href = "/main.css">
@@ -14,29 +14,56 @@
         <!-- Js link--> 
         <script src= "/main.js" defer></script>
 
-        <!--Boxicons link--> 
-        <link rel = "stylesheet"
-        href = "https://unpkg.com/boxicons@latest/css/boxicons.min.css">
-
-        <!-- remixicons link--> 
-        <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
-
         <!-- Font Link--> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+        <!-- Font Link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&display=swap" rel="stylesheet">
+
+
         <!-- Favicon -->
         <link rel="icon" href="/favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-        
-    </head>
     
+
+    </head>
+
     <body>
+        <!-- Overides CSS-->
+        <style>
+            *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Cabin', sans-serif;
+            list-style: none;
+            text-decoration: none;
+         }
+        header{
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 9%;
+            background: white;
+        }
+        body{
+            background: #295f48;
+        }
+        </style>
+
         <!-- nav bar -->
         <header>
-            <a href = "/landing/landing.html" class = "logo">
+            <a href = "/landing/landing.html" class = "logo fraunces-title">
                 <img src="/images/logo.png" class="logoImg">
                 Swift
                 </a>
@@ -72,6 +99,7 @@
                     <h1> Swift Study</h1>
                     <p> Welcome to our study sanctuary, a chill hub for efficient learning. <br>
                         <br>
+                    
                         Our site offers a tranquil space with study timers, task management, and a vibrant forum for all your academic queries </p>
                         <a href ="/signUp/signUp.html" id="temp" name="signUp">Sign Up</a>
                         <a href ="#bottom" class = "ctaa"><i class="ri-team-fill"></i>About Us

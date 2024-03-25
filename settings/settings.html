@@ -11,6 +11,12 @@
      <!--Stylesheet-->
     <link rel = "stylesheet" type = "text/css" href = "/main.css">
     
+    <!-- Font Link--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <!-- Font link -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -24,6 +30,29 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     
     <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Cabin', sans-serif;
+            list-style: none;
+            text-decoration: none;
+         }
+        header{
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 9%;
+            background: white;
+        }
+        body{
+            background: #295f48;
+        }
         .content {
     display: flex;
    }
@@ -158,7 +187,7 @@
 <body>
     <!-- nav bar -->
     <header>
-        <a href = "/landing/landing.html" class = "logo">
+        <a href = "/landing/landing.html" class = "logo fraunces-title">
             <img src="/images/logo.png" class="logoImg">
             Swift
             </a>
@@ -174,6 +203,7 @@
             </div>
           </div>
     </header>
+
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -227,6 +257,58 @@
 
                 
             </div>
+     </div>
+    </div> 
+</div>
+
+    <!-- Footer Section --> 
+    <footer>
+        <div class="footerContainer">
+            <div class="sec aboutUs" >
+                <h2>Discover the Swift Advantage!</h2>
+                    <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
+                        Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
+                        </p>
+                    <ul class="sci">
+                        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    </ul>
+            </div>
+            <div class ="sec quickLinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
+                </ul>
+            </div>
+            <div class="sec contact">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                    <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span>47 Clover Lane,<br>
+                        Dublin City, County Dublin, D12 AB34, Ireland</span>
+                    </li>
+                
+                <li>
+                    <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                    <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
+                        <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
+                    </li>
+
+                <li>
+                    <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+    </footer>
+    <div class="copyrightText">
+        <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
     </div>
 
     

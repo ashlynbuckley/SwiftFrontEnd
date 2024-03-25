@@ -23,8 +23,9 @@ header{
 body{
     background: #295f48;
 }
+
 .logo{
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 700;
     color:#295f48;
     padding-left:10px;
@@ -115,7 +116,7 @@ section{
     line-height: 30px;
     font-weight: 400;
     color: white; 
-    margin: 0 0 45px;
+    margin: 0 0 25px;
 }
 .studyImg img{
     width: 455px; 
@@ -152,28 +153,6 @@ section{
     vertical-align: middle; 
     margin-right: 5px; 
 
-}
-
-/* Sroll down Button */
-.scrollDown{
-    position: absolute; 
-    bottom: 6%;
-    right: 9%;
-}
-
-.scrollDown i{
-    display: block; 
-    padding: 12px;
-    font-size: 25px;
-    color: white;
-    background: #a6dbbc;
-    border-radius: 30px;
-    transition: all .50s ease;
-    
-}
-
-.scrollDown i:hover{
-    transform: translateY(-5px);
 }
 
 /* Style The Dropdown Button */
@@ -357,7 +336,7 @@ section{
     background-size: 50%;
     background-color: transparent;
     overflow: hidden;
-    padding: 70px;
+    padding: 50px;
 }
 .innerContainer{
     width: 55%;
@@ -528,6 +507,36 @@ section{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}
+
+/* Footer Section */
+footer{
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding: 50px 100px;
+    background: #fff;
+    display: flex; 
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+footer .footerContainer{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+footer .footerContainer .sec{
+    margin-right: 30px
+}
+footer .footerContainer .sec.aboutUs{
+    width: 40%;
+}
+footer .footerContainer h2{
+    position: relative;
+    color: #295f48;
+    font-weight: 500;
+    margin-bottom: 15px;
 }
 
 /* Footer Section */
@@ -756,4 +765,25 @@ footer p{
 }
 .tasks ul li span:hover{
     background-color: #a6dbbc;
+}
+
+/* Define the CSS class for the Fraunces font */
+.fraunces-title {
+    font-family: "Fraunces", serif;
+    font-optical-sizing: auto;
+    font-size: 50px;
+    font-weight: 700; 
+    font-style: normal;
+    font-variation-settings:
+        "SOFT" 0,
+        "WONK" 0;
+}
+.spacer {
+    height: 800px; 
+}
+
+.settingsContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
