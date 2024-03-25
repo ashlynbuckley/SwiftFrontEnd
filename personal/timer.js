@@ -19,16 +19,15 @@ function closeModal() {
 
 function loadTimer() {
     // retrieve selected values
-    sessionLength = parseInt(document.getElementById('sessionLength').value);
-    numSessions = parseInt(document.getElementById('numSessions').value);
+    sessionLength = parseInt(document.getElementById('sessionLength').value); //how long is such study session
+    numSessions = parseInt(document.getElementById('numSessions').value); //how many times over?
 
     // last break doesn't count because you'll have finished all study portions of sessions**
     numBreaks = numSessions;
 
     // calculate how long each break is, it is proportionate to the length of time of each study portion
     // for every 25 mins you get 5 min break at the end
-    var breakAllotments = sessionLength % 5;
-    breakLength = breakAllotments * 5;
+    breakLength = sessionLength/5;
 
     timeInSeconds = sessionLength * 60; // decrementing per second
 
@@ -54,11 +53,13 @@ function runTimer() {
         if (!isBreak) {
           completedSessions++;
           //adding a limit
-          if (completedSessions != numSessions) {
-            startSession();
-          }
-        } else {
+          if (completedSessions < numSessions) {
             startBreak();
+          } else {
+            stopTimer(); //all sessions are done
+            }
+        } else {
+            startSession();
         }
     }
 }
@@ -81,6 +82,7 @@ function startBreak() {
     playAlert();
 }
 
+//this updates the screen to show the changing of time
 function updateTimerDisplay() {
     const hours = Math.floor(timeInSeconds / 3600);
     const minutes = Math.floor((timeInSeconds % 3600) / 60);
@@ -95,6 +97,7 @@ function padZero(num) {
     return num < 10 ? '0' + num : num;
 }
 
+//plays sound
 function playAlert() {
   var audio = document.getElementById("breakTimeAudio");
   audio.play();
