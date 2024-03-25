@@ -22,6 +22,7 @@ header{
 }
 body{
     background: #295f48;
+    flex-direction: column;
 }
 .logo{
     font-size: 50px;
@@ -477,7 +478,7 @@ section{
 .timerButton {
     display: inline-block; 
     color: white; 
-    background: #a6dbbc; 
+    background: #78a089; 
     border: 1px solid transparent; 
     padding: 12px 30px;
     margin-bottom: 13px;
@@ -511,7 +512,7 @@ section{
   .modal button{
     display: inline-block; 
     color: white; 
-    background: #a6dbbc; 
+    background: #78a089; 
     border: 1px solid transparent; 
     padding: 12px 30px;
     line-height: 1.4px;
@@ -558,10 +559,11 @@ section{
 
 /* Footer Section */
 footer{
-    position: relative;
+    margin-top: 700px;
+    /* position: fixed; */
     width: 100%;
     height: auto;
-    padding: 50px 100px;
+    /* padding: 50px 100px; */
     background: #fff;
     display: flex; 
     justify-content: space-between;
@@ -735,7 +737,7 @@ footer p{
     border: none; 
     outline: none; 
     padding: 16px 50px; 
-    background: #a6dbbc; 
+    background: #78a089; 
     color: white; 
     font-size: 16px;
     cursor: pointer;

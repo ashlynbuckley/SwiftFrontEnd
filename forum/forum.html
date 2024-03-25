@@ -34,10 +34,10 @@
 
      <!-- This section allows users to create their own Threads. -->
     <ul id="createForum">
-        <li> <h1 class="forumTitle">Learning Forum</h1> </li>
-        <li> <input id="newTitle" type="text" placeholder="Thread Title" /> </li>
-        <li> <textarea id="newContent" placeholder="Type your new Thread here"></textarea> </li>
-        <li> <button id="addThreadButton">Add Thread</button> </li>
+        <li> <h1 class="forumTitle">Welcome To The Nest!</h1> </li>
+        <li> <input id="newTitle" style="height: 25px" class="threadBoxes" type="text" placeholder="Thread Title" /> </li>
+        <li> <textarea id="newContent" class="threadBoxes" placeholder="Type your new Thread here"></textarea> </li>
+        <li> <button id="addThreadButton" class="threadButton" style="width: 200px">Add Thread</button> </li>
         <!-- Unordered List displays each Thread -->
         <li>
             <ul id="threadList">
@@ -45,6 +45,57 @@
             </ul>
         </li>
     </ul>
+
+    <!-- Footer Section --> 
+    <footer>
+        <div class="footerContainer">
+            <div class="sec aboutUs">
+                <h2>Discover the Swift Advantage!</h2>
+                    <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
+                        Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
+                        </p>
+                    <ul class="sci">
+                        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                    </ul>
+            </div>
+            <div class ="sec quickLinks">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
+                </ul>
+            </div>
+            <div class="sec contact">
+                <h2>Contact Info</h2>
+                <ul class="info">
+                    <li>
+                    <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                    <span>47 Clover Lane,<br>
+                        Dublin City, County Dublin, D12 AB34, Ireland</span>
+                    </li>
+                
+                <li>
+                    <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                    <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
+                        <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
+                    </li>
+
+                <li>
+                    <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                    <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="copyrightText">
+        <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
+    </div>
     <!-- forum.js Reference -->
     <script type="module" src="/forum/forum.js"></script>
 </body>
