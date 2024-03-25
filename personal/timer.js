@@ -50,6 +50,7 @@ function runTimer() {
         updateTimerDisplay();
     } else {
         // if the timer reaches 0, start a break or a new session
+        //isBreak is set to true within the startBreak() method and is turned back to false in the start session
         if (!isBreak) {
           completedSessions++;
           //adding a limit
@@ -59,6 +60,7 @@ function runTimer() {
             stopTimer(); //all sessions are done
             }
         } else {
+            playAlert(); //signify end of break
             startSession();
         }
     }
@@ -78,8 +80,8 @@ function startSession() {
 function startBreak() {
     isBreak = true;
     timeInSeconds = breakLength * 60;
-    updateTimerDisplay();
     playAlert();
+    updateTimerDisplay();
 }
 
 //this updates the screen to show the changing of time
