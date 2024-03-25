@@ -42,13 +42,47 @@ body{
 /* Log out  */
 .login{
     margin: 200px 0 0 35%;
-    width:  200px;
+    width:  300px;
     padding: 30px 40px 30px 40px;
-    border: 10px #144A33 solid;
-    border-radius: 15px;
-    background-color:#ccc;
+    border: 7px #144A33 solid;
+    border-radius: 20px;
+    background-color:#ffffff;
+    font-size: 20px;
+    text-align: center;
 }
 
+.login input[type="text"] {
+    border-radius: 20px; 
+    padding: 5px; 
+    border: 1px solid #ccc;     
+}
+
+.logInButton {
+    display: inline-block; 
+    color: white; 
+    background: #78a089; 
+    border: 1px solid transparent; 
+    padding: 12px 30px;
+    margin-bottom: 13px;
+    line-height: 1.4px;
+    font-size: 18px;
+    font-weight:500; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease; 
+    cursor: pointer;  
+}
+
+.signUpSign {
+    font-size: 40px;
+    margin-bottom: 30   px;
+    margin-top: 22px;   
+}
+.signUpComplete {
+    text-align:center;
+    color: white;
+    font-size: 20px;
+}
  /* Navigation Bar */
  .navlist{
     display: flex;
