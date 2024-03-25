@@ -1,0 +1,23 @@
+/* Sign Up and Log in */
+.done{
+    margin: 200px 0 0 35%;
+    width:  250px;
+    padding: 30px 40px 30px 40px;
+    border: 10px #144A33 solid;
+    border-radius: 18px;
+    background-color:#ccc;
+}
+.login a:visited{color:#144A33;}
+
+#Page1 {
+    display:block;
+}
+#Page2 {
+    display:none;
+}
+#Page3 {
+    display:none;
+}
+#done {
+    display:none;
+} 
