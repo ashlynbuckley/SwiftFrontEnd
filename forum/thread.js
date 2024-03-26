@@ -98,7 +98,7 @@ async function updateComments(threadId) {
                 <div class="commentBottom">
                     ${comment.content}
                 </div>
-                <button id="deleteCommentButton"> Delete Comment </button>
+                <button id="deleteCommentButton" onclick="deleteComment(${comment.id})"> Delete Comment </button>
             `;
             commentList.appendChild(li);
         });
@@ -109,14 +109,43 @@ async function updateComments(threadId) {
 }
 
 async function deleteThread() {
-    // TODO: Add Delete Thread Code
+    try {
+            // Make a GET request to add a new comment
+        await fetch(`https://deletethread-pgktbhms6a-uc.a.run.app/`, {
+            method: 'GET',
+            // Request is in JSON format
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwToken}`,
+            },
+            body: JSON.stringify({
+                threadId: threadId,
+            }),
+        });
+        window.location.href = 'forum.html'; // Redirect to forum.html
+        return;
+    } catch (error) { console.error('Error deleting Thread! ', error); } 
 }
 
-async function deleteComment() {
-    // TODO: Add Delete Comment Code
+async function deleteComment(commentId) {
+    try {
+        // Make a GET request to add a new comment
+    await fetch(`https://deletecomment-pgktbhms6a-uc.a.run.app/`, {
+        method: 'GET',
+        // Request is in JSON format
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${jwToken}`,
+        },
+        body: JSON.stringify({
+            commentId: commentId,
+        }),
+    });
+    window.location.href = 'forum.html'; // Redirect to forum.html
+    return;
+} catch (error) { console.error('Error deleting Thread! ', error); } 
 }
 
 document.getElementById('deleteThreadButton').addEventListener('click', deleteThread);
 document.getElementById('addCommentButton').addEventListener('click', addComment);
-document.getElementById('deleteCommentButton').addEventListener('click', deleteComment);
 refreshThread();
