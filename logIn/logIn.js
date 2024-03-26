@@ -3,7 +3,7 @@ function logOn(){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    login(email,password);
+    login(password,email);
 }
    
 
@@ -11,6 +11,7 @@ function login(password,email){
     const data = {'password':password,
                     'email':email
                 }; 
+    console.log(data);
     fetch('https://login-pgktbhms6a-uc.a.run.app/', {
         method: 'POST',
         headers: {
@@ -20,9 +21,10 @@ function login(password,email){
     })
     .then(response => response.json())
     .then(d => {
-        console.log(d);
-        const jwToken = d.token;
-        localStorage.setItem('jwToken',jwToken);
+        localStorage.setItem('jwToken-access',d.access_token);
+        localStorage.setItem('jwToken-refresh',d.refresh_token);
+        localStorage.setItem('username', email);
+        localStorage.setItem('email',email);
         localStorage.setItem("SwiftUserSignedIn", true);
         document.getElementById("loginPage").style = "display:none;";
         document.getElementById("loginPage2").style = "display:block;";
@@ -39,7 +41,7 @@ function loggedin(){
         document.getElementById("temp").innerHTML = "Log Out";
         document.getElementById("temp").href = "/landing/landing.html";
         document.getElementById("temp").name = "logOut";
-        document.title = localStorage.getItem("username")+" | Swift";
+        document.title = localStorage.getItem("username") + " | Swift";
         document.getElementById("timer").href = "/personal/personal.html";
         document.getElementById("forum").href = "/forum/forum.html";
         document.getElementById("settings").href = "/settings/settings.html";
