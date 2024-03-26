@@ -576,35 +576,6 @@ section{
     margin: 0 10px;
 }
 
-/* Footer Section */
-footer{
-    /* position: fixed; */
-    width: 100%;
-    height: auto;
-    /* padding: 50px 100px; */
-    background: #fff;
-    display: flex; 
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-footer .footerContainer{
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-footer .footerContainer .sec{
-    margin-right: 30px
-}
-footer .footerContainer .sec.aboutUs{
-    width: 40%;
-}
-footer .footerContainer h2{
-    position: relative;
-    color: #295f48;
-    font-weight: 500;
-    margin-bottom: 15px;
-}
 
 /* Footer Section */
 footer{
