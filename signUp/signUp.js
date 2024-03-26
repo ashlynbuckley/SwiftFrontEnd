@@ -1,3 +1,4 @@
+
 //checks if the email is valid
 function validateEmail(email){
     //check if there is an @ sign and "."
@@ -20,7 +21,7 @@ function validatePassword(password){
         return true;
     }
     else{
-        alert("Invalid Password. Please make sure the following are in your Password: 'A-Z'  'a-z' '@$!%*?&' '1-9' ");
+        alert("Invalid Password. Please make sure the following are in your Password: 'A-Z'  'a-z' '@$!%*?&' '1-9' and that its between 6 and 50 characters");
         return false;
     }
 }   
@@ -66,6 +67,7 @@ function Back2(){
     document.getElementById("Page3").style = "display:none;";
 }
 
+
 document.getElementById("signup").addEventListener('click', function(event) {
     
     // event.preventDefault();
@@ -77,21 +79,25 @@ document.getElementById("signup").addEventListener('click', function(event) {
 
     let userName = document.getElementById("username").value;
     let age = document.getElementById("age").value;
+    if(age<13){
+        alert("You must be over the age of 13");
+        return;
+    }
     
     signUp(firstName,lastName,email,password,userName,age);
 })
 
 function signUp(firstName,lastName,email,password,userName,age){ 
     const data = {//object
-        'first name':firstName,
-        'last name':lastName,
+        'firstName':firstName,
+        'lastName':lastName,
         'email':email,
         'password':password,
-        'username':userName,
+        'userName':userName,
         'age':age
     }; 
-    
-    fetch('https://dummyjson.com/products/add', {//npmserve   'http://127.0.0.1:5001/ct216app-22318961/us-central1/signup'
+
+    fetch('https://signup-pgktbhms6a-uc.a.run.app/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -100,17 +106,38 @@ function signUp(firstName,lastName,email,password,userName,age){
     })
     .then(response => response.json())
     .then(d => {
-        console.log(d);
-        const jwToken = d.token;
-        localStorage.setItem('jwToken',jwToken);
+        // console.log(d.access_token);
+        if(d.message === 'User already exists.'){ //check if the user exists
+            alert("user already exists");
+            return;
+        }
+        localStorage.setItem('jwToken-access',d.access_token);
+        localStorage.setItem('jwToken-refresh',d.refresh_token);
+        localStorage.setItem('username', userName);
         localStorage.setItem("SwiftUserSignedIn", true);
         document.getElementById("done").style = "display:block;";
         document.getElementById("Page3").style = "display:none;";
-        loggedIn();
+        loggedin();
     })
     .catch(error => {
         console.log('Error Signing in');
     });
+}
+
+setInterval(refreshToken,1800000,localStorage.getItem('jwToken-refresh'));
+
+function refreshToken(refresh_Token){
+    fetch('https://refreshtoken-pgktbhms6a-uc.a.run.app/',{
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(refresh_Token)
+    })
+    .then(response => response.json())
+    .then(d => {
+        localStorage.setItem('jwToken-access',d.access_token);
+    })
 }
 
 function loggedin(){
@@ -118,7 +145,7 @@ function loggedin(){
         document.getElementById("temp").innerHTML = "Log Out";
         document.getElementById("temp").href = "/landing/landing.html";
         document.getElementById("temp").name = "logOut";
-        document.getElementById("home").innerHTML = localStorage.getItem("username")+" | Swift";
+        document.title = localStorage.getItem("username")+" | Swift";
         document.getElementById("timer").href = "/personal/personal.html";
         document.getElementById("forum").href = "/forum/forum.html";
         document.getElementById("settings").href = "/settings/settings.html";
@@ -127,10 +154,22 @@ function loggedin(){
         document.getElementById("temp").innerHTML = "Sign Up";
         document.getElementById("temp").href = "/signUp/signUp.html";
         document.getElementById("temp").name = "signOut";
-        document.getElementById("home").innerHTML = "Home | Swift";
+        document.title = "Sign Up | Swift";
         document.getElementById("timer").href = "/signUp/signUp.html";
         document.getElementById("forum").href = "/signUp/signUp.html";
         document.getElementById("settings").href = "/signUp/signUp.html";
     }
+    loggedOut;
 }
+
+function loggedOut() {
+    if (document.getElementById("temp").name === "logOut") {
+        window.location.replace("../landing/landing.html");
+        document.getElementById("temp").href = "#";
+        document.getElementById("loggedOut").style = "display:block;z-index:100000;position:absolute;";
+        document.getElementById("All").style = "opacity:.5;";
+        console.log("sign up page");
+    }
+}
+
 window.onload = loggedin;
