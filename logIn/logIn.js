@@ -22,6 +22,7 @@ function login(password,email,userName){
     })
     .then(response => response.json())
     .then(d => {
+        console.log(d);
         localStorage.setItem('jwToken-access',d.access_token);
         localStorage.setItem('jwToken-refresh',d.refresh_token);
         localStorage.setItem('username', userName);
