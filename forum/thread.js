@@ -109,3 +109,25 @@ async function updateComments(threadId) {
 
 document.getElementById('addCommentButton').addEventListener('click', addComment);
 refreshThread();
+
+function loggedin(){
+    if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
+        document.getElementById("temp").innerHTML = "Log Out";
+        document.getElementById("temp").href = "/landing/landing.html";
+        document.getElementById("temp").name = "logOut";
+        document.title = localStorage.getItem("username") + " | Swift";
+        document.getElementById("timer").href = "/personal/personal.html";
+        document.getElementById("forum").href = "/forum/forum.html";
+        document.getElementById("settings").href = "/settings/settings.html";
+    }
+    else {
+        document.getElementById("temp").innerHTML = "Sign Up";
+        document.getElementById("temp").href = "/signUp/signUp.html";
+        document.getElementById("temp").name = "signOut";
+        document.title = "Threads | Swift";
+        document.getElementById("timer").href = "/signUp/signUp.html";
+        document.getElementById("forum").href = "/signUp/signUp.html";
+        document.getElementById("settings").href = "/signUp/signUp.html";
+    }
+}
+window.onload = loggedin;
