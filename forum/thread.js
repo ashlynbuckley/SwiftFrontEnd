@@ -98,6 +98,7 @@ async function updateComments(threadId) {
                 <div class="commentBottom">
                     ${comment.content}
                 </div>
+                <button id="deleteCommentButton"> Delete Comment </button>
             `;
             commentList.appendChild(li);
         });
@@ -107,5 +108,15 @@ async function updateComments(threadId) {
     } catch (error) { console.error('Error updating Comments! ', error); }
 }
 
+async function deleteThread() {
+    // TODO: Add Delete Thread Code
+}
+
+async function deleteComment() {
+    // TODO: Add Delete Comment Code
+}
+
+document.getElementById('deleteThreadButton').addEventListener('click', deleteThread);
 document.getElementById('addCommentButton').addEventListener('click', addComment);
+document.getElementById('deleteCommentButton').addEventListener('click', deleteComment);
 refreshThread();
