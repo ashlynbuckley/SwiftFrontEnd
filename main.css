@@ -75,6 +75,13 @@ body{
     cursor: pointer;  
 }
 
+.orLogIn {
+    text-align: center;
+    padding-top: .5px;
+    padding-bottom: .5px; 
+    margin-top: 7px;
+    margin-bottom: 7px; 
+}
 
  /* Navigation Bar */
  .navlist{
