@@ -1,5 +1,7 @@
 //dynamic navbar
-window.onload = function loggedin() {
+window.onload = loggedin;
+
+function loggedin() {
     
     if (localStorage.getItem("SwiftUserSignedIn") === 'true') {
         document.getElementById("temp").innerHTML = "Log Out";
@@ -9,6 +11,11 @@ window.onload = function loggedin() {
         document.getElementById("timer").href = "/personal/personal.html";
         document.getElementById("forum").href = "/forum/forum.html";
         document.getElementById("settings").href = "/settings/settings.html";
+
+        // Landing page links 
+        document.getElementById("personalLink").href = "/personal/personal.html";
+        document.getElementById("personalLink2").href = "/personal/personal.html";
+        document.getElementById("forumLink").href = "/forum/forum.html";
     }
     else {
         document.getElementById("temp").innerHTML = "Sign Up";
@@ -18,6 +25,11 @@ window.onload = function loggedin() {
         document.getElementById("timer").href = "/signUp/signUp.html";
         document.getElementById("forum").href = "/signUp/signUp.html";
         document.getElementById("settings").href = "/signUp/signUp.html";
+
+        // Landing page links 
+        document.getElementById("personalLink").href = "/signUp/signUp.html";
+        document.getElementById("personalLink2").href = "/signUp/signUp.html";
+        document.getElementById("forumLink").href = "/signUp/signUp.html";
     }
 
     if(localStorage.getItem("landing") === 'false'){
@@ -48,7 +60,7 @@ function logOut(){
     localStorage.setItem("logOut",false);
     document.getElementById("All").style = "opacity:1;"
     document.getElementById("loggedOut").style = "display:none;"
-    loggedin();
+    loggedin;
 }
 
 function stayIn(){
