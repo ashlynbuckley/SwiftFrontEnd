@@ -29,9 +29,9 @@ function loadTab(tabChosen) {
         }
         
         if (localStorage.getItem('password') !== 'none') {
-            document.getElementById("password").value = localStorage.getItem('password');
+            document.getElementById("passwordInput").value = localStorage.getItem('password');
         } else { 
-            document.getElementById("password").value = "No password found.";
+            document.getElementById("passwordInput").value = "No password found.";
         }
         
         if (localStorage.getItem('age') !== 'none') {
