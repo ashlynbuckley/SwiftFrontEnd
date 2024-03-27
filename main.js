@@ -58,7 +58,7 @@ function logOut(){
     localStorage.setItem("email","none");
     localStorage.setItem("SwiftUserSignedIn",false);
     localStorage.setItem("logOut",false);
-    localStorage.setItem("landing",false);
+    localStorage.setItem("landing",true);
     document.getElementById("All").style = "opacity:1;"
     document.getElementById("loggedOut").style = "display:none;"
     loggedin;
@@ -69,6 +69,6 @@ function stayIn(){
     document.getElementById("loggedOut").style = "display:none;"
     document.getElementById("temp").href = "/landing/landing.html";
     localStorage.setItem("logOut",false);
-    localStorage.setItem("landing",false);
+    localStorage.setItem("landing",true);
 }
 
