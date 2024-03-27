@@ -60,7 +60,7 @@ function attemptDeletion() {
 
     if (userInput != null) {
         //"123" will eventually be the actual password - this is for testing purposes
-        if (userInput == correctPassword) {
+        if (userInput === correctPassword) {
             var deleteConfirmation = confirm("Are you sure?");
 
             //if they do want to del account
