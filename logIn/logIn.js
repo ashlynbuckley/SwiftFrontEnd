@@ -29,8 +29,8 @@ function login(password,email,userName){
         }
         localStorage.setItem('jwToken-access',d.access_token);
         localStorage.setItem('jwToken-refresh',d.refresh_token);
-        localStorage.setItem('username', userName);
-        localStorage.setItem('email',email);
+        localStorage.setItem('username', d.user.userName);
+        localStorage.setItem('email',d.user.email);
         localStorage.setItem("SwiftUserSignedIn", true);
         localStorage.setItem("logOut",false);
         localStorage.setItem("landing", false);
