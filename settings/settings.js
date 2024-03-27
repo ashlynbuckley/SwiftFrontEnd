@@ -86,7 +86,7 @@ function deleteAccount() {
         },
     })
     .then(response => {
-        if (!response.ok) {
+        if (response.ok == 200) {
           throw new Error('Network response was not ok');
         }
         window.location.href='/landing/landing.html';
@@ -107,6 +107,15 @@ function updateProfile() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
+        if (localStorage.getItem('lastName') !== 'none') {
+            document.getElementById("lname").value = localStorage.getItem('lastName');
+        }
+        
+        if (localStorage.getItem('firstName') !== 'none') {
+            document.getElementById("fname").value = localStorage.getItem('firstName');
+        }
+        
         location.reload();
       })
       .catch(error => {
@@ -125,6 +134,17 @@ function updateAccount() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
+        if (localStorage.getItem('email') !== 'none') {
+            document.getElementById('userEmail').value = localStorage.getItem('email');
+        }
+        if (localStorage.getItem('password') !== 'none') {
+            document.getElementById("password").value = localStorage.getItem('password');
+        }
+        if (localStorage.getItem('age') !== 'none') {
+            document.getElementById("dob").value =localStorage.getItem('age');
+        } 
+
         location.reload();
       })
       .catch(error => {
