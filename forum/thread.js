@@ -1,10 +1,10 @@
+let newComment = document.getElementById('newComment').value.trim();
+let urlParams = new URLSearchParams(window.location.search);
+let threadId = urlParams.get('id');
+
 // Function to add a new Comment
 async function addComment() {
     try {
-        let newComment = document.getElementById('newComment').value.trim();
-        let urlParams = new URLSearchParams(window.location.search);
-        let threadId = urlParams.get('id');
-
         // Ensure Input Comment isn't empty
         if (newComment !== '') {
             // Retrieve JWT token from local storage, and check if the Token exists
@@ -38,19 +38,20 @@ async function addComment() {
 // Function to update Thread Data
 async function refreshThread() {
     try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const threadId = urlParams.get('id');
+        // Retrieve JWT token from local storage, and check if the Token exists
+        const jwToken = localStorage.getItem('jwToken-access');
+        if (!jwToken) { return; }
 
-        // Fetch thread data using the provided GET method that retrives Every thread
+        // Make a GET request to fetch thread data
         const response = await fetch('https://getthreads-pgktbhms6a-uc.a.run.app/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
+                'Authorization': `Bearer ${jwToken}`,
             },
         });
-
         const allThreads = await response.json();
-        const threadData = allThreads.find(thread => thread.id === threadId)
+        const threadData = allThreads.find(thread => thread.id === threadId);
 
         // Ensure Thread data is received
         if (threadData) {
@@ -59,14 +60,17 @@ async function refreshThread() {
             document.getElementById('threadContent').innerText = threadData.content;
 
             // Call updateComments with threadId
-            updateComments(threadId);
-
-        } else { console.log('Thread ' + threadId + ' not found!'); }
-    } catch (error) { console.error('Error updating Thread! ', error); }
+            updateComments();
+        } else {
+            console.log('Thread ' + threadId + ' not found!');
+        }
+    } catch (error) {
+        console.error('Error updating Thread! ', error);
+    }
 }
 
 // Function to update the Comments display
-async function updateComments(threadId) {
+async function updateComments() {
     try {
         // Retrieve JWT token from local storage, and check if the Token exists
         const jwToken = localStorage.getItem('jwToken-access');
@@ -110,6 +114,12 @@ async function updateComments(threadId) {
 
 async function deleteThread() {
     try {
+        // Retrieve JWT token from local storage, and check if the Token exists
+        const jwToken = localStorage.getItem('jwToken-access');
+        if (!jwToken) {
+            console.error('JWT Token not found!');
+            return;
+        }
             // Make a GET request to add a new comment
         await fetch(`https://deletethread-pgktbhms6a-uc.a.run.app/`, {
             method: 'GET',
@@ -129,6 +139,12 @@ async function deleteThread() {
 
 async function deleteComment(commentId) {
     try {
+        // Retrieve JWT token from local storage, and check if the Token exists
+        const jwToken = localStorage.getItem('jwToken-access');
+        if (!jwToken) {
+            console.error('JWT Token not found!');
+            return;
+        }
         // Make a GET request to add a new comment
     await fetch(`https://deletecomment-pgktbhms6a-uc.a.run.app/`, {
         method: 'GET',
