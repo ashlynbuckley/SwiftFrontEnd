@@ -29,9 +29,9 @@ function loadTab(tabChosen) {
         }
         
         if (localStorage.getItem('password') !== 'none') {
-            document.getElementById("password").value = localStorage.getItem('password');
+            document.getElementById("passwordInput").value = localStorage.getItem('password');
         } else { 
-            document.getElementById("password").value = "No password found.";
+            document.getElementById("passwordInput").value = "No password found.";
         }
         
         if (localStorage.getItem('age') !== 'none') {
@@ -60,7 +60,7 @@ function attemptDeletion() {
 
     if (userInput != null) {
         //"123" will eventually be the actual password - this is for testing purposes
-        if (userInput == correctPassword) {
+        if (userInput === correctPassword) {
             var deleteConfirmation = confirm("Are you sure?");
 
             //if they do want to del account
@@ -86,7 +86,7 @@ function deleteAccount() {
         },
     })
     .then(response => {
-        if (!response.ok) {
+        if (response.ok == 200) {
           throw new Error('Network response was not ok');
         }
         window.location.href='/landing/landing.html';
@@ -107,6 +107,15 @@ function updateProfile() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
+        if (localStorage.getItem('lastName') !== 'none') {
+            document.getElementById("lname").value = localStorage.getItem('lastName');
+        }
+        
+        if (localStorage.getItem('firstName') !== 'none') {
+            document.getElementById("fname").value = localStorage.getItem('firstName');
+        }
+        
         location.reload();
       })
       .catch(error => {
@@ -125,6 +134,17 @@ function updateAccount() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+
+        if (localStorage.getItem('email') !== 'none') {
+            document.getElementById('userEmail').value = localStorage.getItem('email');
+        }
+        if (localStorage.getItem('password') !== 'none') {
+            document.getElementById("password").value = localStorage.getItem('password');
+        }
+        if (localStorage.getItem('age') !== 'none') {
+            document.getElementById("dob").value =localStorage.getItem('age');
+        } 
+
         location.reload();
       })
       .catch(error => {
@@ -139,7 +159,6 @@ function loggedin() {
         document.getElementById("temp").innerHTML = "Log Out";
         document.getElementById("temp").name = "logOut";
         document.getElementById("temp").href = "/landing/landing.html";
-        document.title = localStorage.getItem("username") + " | Swift";
         document.getElementById("timer").href = "/personal/personal.html";
         document.getElementById("forum").href = "/forum/forum.html";
         document.getElementById("settings").href = "/settings/settings.html";
@@ -148,7 +167,6 @@ function loggedin() {
         document.getElementById("temp").innerHTML = "Sign Up";
         document.getElementById("temp").href = "/signUp/signUp.html";
         document.getElementById("temp").name = "signOut";
-        document.title = "Timer/Tasks | Swift";
         document.getElementById("timer").href = "/signUp/signUp.html";
         document.getElementById("forum").href = "/signUp/signUp.html";
         document.getElementById("settings").href = "/signUp/signUp.html";
