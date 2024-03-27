@@ -114,6 +114,7 @@ function signUp(firstName,lastName,email,password,userName,age){
         localStorage.setItem('jwToken-access',d.access_token);
         localStorage.setItem('jwToken-refresh',d.refresh_token);
         localStorage.setItem('username', userName);
+        localStorage.setItem('email',email);
         
         localStorage.setItem("SwiftUserSignedIn", true);
         localStorage.setItem("logOut",false);
