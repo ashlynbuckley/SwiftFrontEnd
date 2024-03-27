@@ -2,15 +2,14 @@
 function logOn(){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    let userName = document.getElementById("username").value;
-    login(password,email,userName);
+    
+    login(password,email);
 }
    
 
-function login(password,email,userName){
+function login(password,email){
     const data = {'password':password,
-                    'email':email,
-                    'userName': userName
+                    'email':email
                 }; 
     console.log(data);
     fetch('https://login-pgktbhms6a-uc.a.run.app/', {
@@ -29,8 +28,11 @@ function login(password,email,userName){
         }
         localStorage.setItem('jwToken-access',d.access_token);
         localStorage.setItem('jwToken-refresh',d.refresh_token);
-        localStorage.setItem('username', userName);
-        localStorage.setItem('email',email);
+        localStorage.setItem('username', d.user.userName);
+        localStorage.setItem('email',d.user.email);
+        localStorage.setItem('age',d.user.age);
+        localStorage.setItem('firstName',d.user.firstName);
+        localStorage.setItem('lastName',d.user.lastName);
         localStorage.setItem("SwiftUserSignedIn", true);
         localStorage.setItem("logOut",false);
         localStorage.setItem("landing", false);
