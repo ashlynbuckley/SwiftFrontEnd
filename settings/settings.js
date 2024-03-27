@@ -18,6 +18,54 @@ function loadTab(tabChosen) {
         loadTab('profile');
     });
 
+    //show your details in settings
+    document.addEventListener("DOMContentLoaded", function() {
+        var emailAddress = localStorage.getItem('email');
+        var userPassword = localStorage.getItem('password');
+        var age = localStorage.getItem('age');
+        var firstName = localStorage.getItem('firstName');
+        var lastName = localStorage.getItem('lastName');
+    
+        var emailElement = document.getElementById('userEmail');
+        var passElement = document.getElementById("passwordInput");
+        var ageElement = document.getElementById("dob");
+        var firstNameEl = document.getElementById("fname");
+        var lastNameEl = document.getElementById("lname");
+    
+        // Update input boxes
+        if (emailAddress) {
+            emailElement.value = emailAddress;
+        } else {
+            emailElement.value = "No email found.";
+        }
+        
+        if (userPassword) {
+            passElement.value = userPassword;
+        } else { 
+            passElement.value = "No password found.";
+        }
+        
+        if (age) {
+            ageElement.value = age;
+        } else {
+            ageElement.value = "No age found.";
+        }
+    
+        if (firstName) {
+            firstNameEl.value = firstName;
+        } else {
+            firstNameEl.value = "No name entered.";
+        }
+    
+        if (lastName) {
+            lastNameEl.value = lastName;
+        } else {
+            lastNameEl.value = "No name entered.";
+        }
+    });
+    
+
+
 
 function attemptDeletion() {
     var userInput = prompt("Enter your password:");
