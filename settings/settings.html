@@ -235,7 +235,7 @@
 
                 <!-- Discard and commit changes buttons - no code for this currently -->
                 <a href="/settings/settings.html"><button class="commitChangeButton">Discard Changes</button></a>
-                <button class="commitChangeButton">Commit Changes</button>
+                <button class="commitChangeButton" onclick="updateProfile()">Commit Changes</button>
                 </div>
 
                 <!-- footer -->
@@ -296,15 +296,15 @@
                 <h3>Manage Account</h3>
                 <label for="userEmail" style="font-size: 20px;">Email</label><br>
                 <input type="email" id="userEmail" class="inputBox">
-                <button onclick="changeEmail()" class="commitChangeButton">Update</button><br>
+                <button onclick="updateAccount()" class="commitChangeButton">Update</button><br>
 
                 <label for="password" style="font-size: 20px;">Password</label><br>
                 <input type="password" id="passwordInput" class="inputBox">
-                <button onclick="changePassword()" class="commitChangeButton">Update</button><br>
+                <button onclick="updateAccount()" class="commitChangeButton">Update</button><br>
 
                 <label for="dob" style="font-size: 20px;">Age</label><br>
                 <input type="text" id="dob" class="inputBox">
-                <button onclick="changeAge()" class="commitChangeButton">Update</button><br><br>
+                <button onclick="updateAccount()" class="commitChangeButton">Update</button><br><br>
                 <button id="deleteButton" class="accDeletionButton" onclick="attemptDeletion()">Delete Account</button>
 
                 <!-- footer -->

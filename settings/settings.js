@@ -63,16 +63,15 @@ function loadTab(tabChosen) {
             lastNameEl.value = "No name entered.";
         }
     });
-    
-
 
 
 function attemptDeletion() {
     var userInput = prompt("Enter your password:");
+    var correctPassword = localStorage.getItem('password');
 
     if (userInput != null) {
         //"123" will eventually be the actual password - this is for testing purposes
-        if (userInput == "123") {
+        if (userInput == correctPassword) {
             var deleteConfirmation = confirm("Are you sure?");
 
             //if they do want to del account
@@ -91,8 +90,58 @@ function attemptDeletion() {
 }
 
 function deleteAccount() {
-    // Code to delete account will go here
-    alert("Account deleted successfully!");
+    fetch('https://deleteuser-pgktbhms6a-uc.a.run.app/', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        window.location.href='/landing/landing.html';
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
+
+function updateProfile() {
+    fetch('https://updateprofile-pgktbhms6a-uc.a.run.app/', {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+}
+
+function updateAccount() {
+    fetch("https://updateaccount-pgktbhms6a-uc.a.run.app/", {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        location.reload();
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+
 }
 
 //dynamic navbar

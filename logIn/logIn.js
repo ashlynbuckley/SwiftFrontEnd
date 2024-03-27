@@ -10,7 +10,7 @@ function logOn(){
 function login(password,email,userName){
     const data = {'password':password,
                     'email':email,
-                    'username': userName
+                    'userName': userName
                 }; 
     console.log(data);
     fetch('https://login-pgktbhms6a-uc.a.run.app/', {
