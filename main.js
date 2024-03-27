@@ -54,8 +54,13 @@ function loggedOut() {
 }
 
 function logOut(){
+    //parameters set to none
     localStorage.setItem("username", "none");
     localStorage.setItem("email","none");
+    localStorage.setItem("age", "none");
+    localStorage.setItem("firstName", "none");
+    localStorage.setItem("lastName", "none");
+    
     localStorage.setItem("SwiftUserSignedIn",false);
     localStorage.setItem("logOut",false);
     localStorage.setItem("landing",true);

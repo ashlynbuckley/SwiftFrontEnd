@@ -20,47 +20,36 @@ function loadTab(tabChosen) {
 
     //show your details in settings
     document.addEventListener("DOMContentLoaded", function() {
-        var emailAddress = localStorage.getItem('email');
-        var userPassword = localStorage.getItem('password');
-        var age = localStorage.getItem('age');
-        var firstName = localStorage.getItem('firstName');
-        var lastName = localStorage.getItem('lastName');
-    
-        var emailElement = document.getElementById('userEmail');
-        var passElement = document.getElementById("passwordInput");
-        var ageElement = document.getElementById("dob");
-        var firstNameEl = document.getElementById("fname");
-        var lastNameEl = document.getElementById("lname");
     
         // Update input boxes
-        if (emailAddress) {
-            emailElement.value = emailAddress;
+        if (localStorage.getItem('email') !== 'none') {
+            document.getElementById('userEmail').value = localStorage.getItem('email');
         } else {
-            emailElement.value = "No email found.";
+            document.getElementById('userEmail').value = "No email found.";
         }
         
-        if (userPassword) {
-            passElement.value = userPassword;
+        if (localStorage.getItem('password') !== 'none') {
+            document.getElementById("password").value = localStorage.getItem('password');
         } else { 
-            passElement.value = "No password found.";
+            document.getElementById("password").value = "No password found.";
         }
         
-        if (age) {
-            ageElement.value = age;
+        if (localStorage.getItem('age') !== 'none') {
+            document.getElementById("dob").value =localStorage.getItem('age');
         } else {
-            ageElement.value = "No age found.";
+            document.getElementById("dob").value = "No age found.";
         }
     
-        if (firstName) {
-            firstNameEl.value = firstName;
+        if (localStorage.getItem('firstName') !== 'none') {
+            document.getElementById("fname").value = localStorage.getItem('firstName');
         } else {
-            firstNameEl.value = "No name entered.";
+            document.getElementById("fname").value = "No name entered.";
         }
     
-        if (lastName) {
-            lastNameEl.value = lastName;
+        if (localStorage.getItem('lastName') !== 'none') {
+            document.getElementById("lname").value = localStorage.getItem('lastName');
         } else {
-            lastNameEl.value = "No name entered.";
+            document.getElementById("lname").value = "No name entered.";
         }
     });
 
