@@ -133,9 +133,7 @@ function signUp(firstName,lastName,email,password,userName,age){
     });
 }
 
-setInterval(refreshToken,1800000,localStorage.getItem('jwToken-refresh'));
-
-function refreshToken(refresh_Token){
+setInterval(function refreshToken(refresh_Token){
     fetch('https://refreshtoken-pgktbhms6a-uc.a.run.app/',{
         method: 'POST',
         headers: {
@@ -148,6 +146,7 @@ function refreshToken(refresh_Token){
         localStorage.setItem('jwToken-access',d.access_token);
     })
 }
+,1800000);
 
 function loggedin(){
     if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
