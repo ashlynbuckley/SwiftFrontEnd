@@ -1,6 +1,6 @@
 /* Additonal CSS for forum.html */
 .forum ul {
-    background: white;
+    background: white;  
 }
 
 #createForum {
@@ -39,6 +39,8 @@
     margin-top: 10px;
     margin-left: 10px;
     margin-bottom: 10px;
+    color: white;
+    text-decoration: none;
 }
 
 #newTitle, #addThreadButton {
@@ -52,7 +54,7 @@
     padding: 5px;
     height: 100px;
     width: 100%;
-    resize: none;
+    resize: none;   
 }
 
 .forumTitle {
@@ -60,6 +62,4 @@
     margin-bottom: 40px;
     font-size: 40px;
 }
-.forum a {
-    color: white;
-}
+
