@@ -100,7 +100,7 @@ function deleteAccount() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
-        window.location.href = '/landing/landing.html';
+        window.location.href='/landing/landing.html';
       })
       .catch(error => {
         console.error('Error:', error);
@@ -118,6 +118,7 @@ function updateProfile() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+        location.reload();
       })
       .catch(error => {
         console.error('Error:', error);
@@ -135,6 +136,7 @@ function updateAccount() {
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
+        location.reload();
       })
       .catch(error => {
         console.error('Error:', error);
