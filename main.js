@@ -62,6 +62,7 @@ function logOut(){
     document.getElementById("All").style = "opacity:1;"
     document.getElementById("loggedOut").style = "display:none;"
     loggedin;
+    location.reload(); //reflect the change
 }
 
 function stayIn(){
