@@ -8,7 +8,7 @@ async function addComment() {
         // Ensure Input Comment isn't empty
         if (newComment !== '') {
             // Retrieve JWT token from local storage, and check if the Token exists
-            const jwToken = localStorage.getItem('jwToken');
+            const jwToken = localStorage.getItem('jwToken-access');
             if (!jwToken) {
                 console.error('JWT Token not found!');
                 return;
@@ -69,9 +69,9 @@ async function refreshThread() {
 async function updateComments(threadId) {
     try {
         // Retrieve JWT token from local storage, and check if the Token exists
-        const jwToken = localStorage.getItem('jwToken');
+        const jwToken = localStorage.getItem('jwToken-access');
         if (!jwToken) {
-            window.location.href = '/signUp/signUp.html'; // Redirect to signUp.html
+            console.error('JWT Token not found!');
             return;
         }
 

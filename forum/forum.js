@@ -7,7 +7,7 @@ async function addThread() {
         // Ensure the input's title and content aren't empty.
         if (newTitle !== '' && newContent !== '') {
             // Retrieve JWT token from local storage, and check if the Token exists
-            const jwToken = localStorage.getItem('jwToken');
+            const jwToken = localStorage.getItem('jwToken-access');
             if (!jwToken) {
                 console.error('JWT Token not found!');
                 return;
@@ -39,11 +39,8 @@ function updateThreadList() {
     threadList.innerHTML = '';
 
     // Retrieve JWT token from local storage, and check if the Token exists
-    const jwToken = localStorage.getItem('jwToken');
-    if (!jwToken) {
-        window.location.href = '/signUp/signUp.html'; // Redirect to signUp.html
-        return;
-    }
+    const jwToken = localStorage.getItem('jwToken-access');
+    if (!jwToken) { return; }
 
     // Make a GET request to fetch thread data
     fetch('https://getthreads-pgktbhms6a-uc.a.run.app/', {
