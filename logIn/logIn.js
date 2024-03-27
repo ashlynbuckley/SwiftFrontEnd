@@ -2,15 +2,14 @@
 function logOn(){
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
-    let userName = document.getElementById("username").value;
-    login(password,email,userName);
+    
+    login(password,email);
 }
    
 
-function login(password,email,userName){
+function login(password,email){
     const data = {'password':password,
-                    'email':email,
-                    'userName': userName
+                    'email':email
                 }; 
     console.log(data);
     fetch('https://login-pgktbhms6a-uc.a.run.app/', {
