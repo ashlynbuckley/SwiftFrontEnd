@@ -18,6 +18,54 @@ function loadTab(tabChosen) {
         loadTab('profile');
     });
 
+    //show your details in settings
+    document.addEventListener("DOMContentLoaded", function() {
+        var emailAddress = localStorage.getItem('email');
+        var userPassword = localStorage.getItem('password');
+        var age = localStorage.getItem('age');
+        var firstName = localStorage.getItem('firstName');
+        var lastName = localStorage.getItem('lastName');
+    
+        var emailElement = document.getElementById('userEmail');
+        var passElement = document.getElementById("passwordInput");
+        var ageElement = document.getElementById("dob");
+        var firstNameEl = document.getElementById("fname");
+        var lastNameEl = document.getElementById("lname");
+    
+        // Update input boxes
+        if (emailAddress) {
+            emailElement.value = emailAddress;
+        } else {
+            emailElement.value = "No email found.";
+        }
+        
+        if (userPassword) {
+            passElement.value = userPassword;
+        } else { 
+            passElement.value = "No password found.";
+        }
+        
+        if (age) {
+            ageElement.value = age;
+        } else {
+            ageElement.value = "No age found.";
+        }
+    
+        if (firstName) {
+            firstNameEl.value = firstName;
+        } else {
+            firstNameEl.value = "No name entered.";
+        }
+    
+        if (lastName) {
+            lastNameEl.value = lastName;
+        } else {
+            lastNameEl.value = "No name entered.";
+        }
+    });
+    
+
+
 
 function attemptDeletion() {
     var userInput = prompt("Enter your password:");
@@ -47,12 +95,13 @@ function deleteAccount() {
     alert("Account deleted successfully!");
 }
 
-function loggedin(){
-    if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
+//dynamic navbar
+function loggedin() {
+    if (localStorage.getItem("SwiftUserSignedIn") === 'true') {
         document.getElementById("temp").innerHTML = "Log Out";
-        document.getElementById("temp").href = "/landing/landing.html";
         document.getElementById("temp").name = "logOut";
-        document.getElementById("home").innerHTML = localStorage.getItem("username")+" | Swift";
+        document.getElementById("temp").href = "/landing/landing.html";
+        document.title = localStorage.getItem("username") + " | Swift";
         document.getElementById("timer").href = "/personal/personal.html";
         document.getElementById("forum").href = "/forum/forum.html";
         document.getElementById("settings").href = "/settings/settings.html";
@@ -61,12 +110,19 @@ function loggedin(){
         document.getElementById("temp").innerHTML = "Sign Up";
         document.getElementById("temp").href = "/signUp/signUp.html";
         document.getElementById("temp").name = "signOut";
-        document.getElementById("home").innerHTML = "Home | Swift";
+        document.title = "Timer/Tasks | Swift";
         document.getElementById("timer").href = "/signUp/signUp.html";
         document.getElementById("forum").href = "/signUp/signUp.html";
         document.getElementById("settings").href = "/signUp/signUp.html";
     }
 }
+function loggedOut() {
+    if (document.getElementById("temp").name === "logOut") {
+        localStorage.setItem("logOut",true);
+        localStorage.setItem("landing",false);
+    }
+}
+
 window.onload = loggedin;
 
 

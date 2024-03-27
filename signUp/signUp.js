@@ -114,7 +114,16 @@ function signUp(firstName,lastName,email,password,userName,age){
         localStorage.setItem('jwToken-access',d.access_token);
         localStorage.setItem('jwToken-refresh',d.refresh_token);
         localStorage.setItem('username', userName);
+        localStorage.setItem('email',email);
+        localStorage.setItem('password',password);
+        localStorage.setItem('age',age);
+        localStorage.setItem('firstName',firstName);
+        localStorage.setItem('lastName',lastName);
+        
         localStorage.setItem("SwiftUserSignedIn", true);
+        localStorage.setItem("logOut",false);
+        localStorage.setItem("landing", false);
+        
         document.getElementById("done").style = "display:block;";
         document.getElementById("Page3").style = "display:none;";
         loggedin();

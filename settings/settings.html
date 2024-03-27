@@ -7,6 +7,7 @@
     <meta charset = "utf-8"> 
     <meta name="description" content="Settings page for Swift, accessible through landing page">
     <meta name=author content="Ashlyn Buckley">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <!--Stylesheet-->
     <link rel = "stylesheet" type = "text/css" href = "/main.css">
@@ -34,13 +35,13 @@
         *{
             padding: 0;
             margin: 0;
-            box-sizing: border-box;
+            box-sizing: border-box; 
             font-family: 'Cabin', sans-serif;
             list-style: none;
             text-decoration: none;
          }
         header{
-            position: fixed;
+            /* position: fixed; */
             right: 0;
             top: 0;
             z-index: 1000;
@@ -55,8 +56,8 @@
             background: #295f48;
         }
         .content {
-    display: flex;
-   }
+        display: flex;
+        }
 
    /* Settings page buttons */
    .commitChangeButton {
@@ -109,7 +110,7 @@
    }
    
     .sidebar ul li{
-    margin: 30px 0; /* This value controls vertical spacing between list items */
+    margin: 30px 0; 
     text-align:center;
     }
 
@@ -150,13 +151,13 @@
    /* Main css of the tabbable area */
    .tab {
     background:#295f48;
-    position:fixed;
+    padding-left:230px;
     height:100vh;
     left: 220px;
-    width: calc(100% - 220px);
     background-size:cover;
     background-position:center;
     color: white;
+    flex-grow: 1;
    }
 
    .tab h3 {
@@ -170,13 +171,14 @@
 
    .tabContent.active {
        display: block;
-       left: 300px;
-       padding: 70px 12px;
-       border: 1px solid #ccc;
+       left: 230px;
+       padding-top: 70px;
        border-top: none;
        font-size: 30px;
        color: white;
        text-align: center;
+       align-items: center;
+       justify-content: center;
        margin-top: 100px;
        
    }
@@ -208,7 +210,7 @@
     <!-- Sidebar -->
     <div class="sidebar">
         <ul>
-            <li><h1 class="heading">Settings</h1></li> <!-- static -->
+            <li><h1 class="heading, fraunces-title" style="color: white; font-size: 45px;">Settings</h1></li> <!-- static -->
             <li><button id="profileButton" onclick="loadTab('profile')">Edit Profile</button></li> 
             <li><button id="accountButton" onclick="loadTab('accountTab')">Manage Account</button></li>
         </ul>
@@ -236,6 +238,57 @@
                 <button class="commitChangeButton">Commit Changes</button>
                 </div>
 
+                <!-- footer -->
+                <footer style="margin-top: 150px;">
+                    <div class="footerContainer" style="font-size: 17px">
+                        <div class="sec aboutUs">
+                            <h2>Discover the Swift Advantage!</h2>
+                                <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
+                                    Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
+                                    </p>
+                                <ul class="sci">
+                                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                </ul>
+                        </div>
+                        <div class ="sec quickLinks">
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
+                                <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
+                                <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
+                            </ul>
+                        </div>
+                        <div class="sec contact">
+                            <h2>Contact Info</h2>
+                            <ul class="info">
+                                <li>
+                                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                <span>47 Clover Lane,<br>
+                                    Dublin City, County Dublin, D12 AB34, Ireland</span>
+                                </li>
+                            
+                            <li>
+                                <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                                <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
+                                    <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
+                                </li>
+    
+                            <li>
+                                <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+                <div class="copyrightText" style="font-size: 20px;">
+                    <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
+                </div>
+
             </div>
 
             <!-- Manage Account -->
@@ -246,7 +299,7 @@
                 <button onclick="changeEmail()" class="commitChangeButton">Update</button><br>
 
                 <label for="password" style="font-size: 20px;">Password</label><br>
-                <input type="password" id="password" class="inputBox">
+                <input type="password" id="passwordInput" class="inputBox">
                 <button onclick="changePassword()" class="commitChangeButton">Update</button><br>
 
                 <label for="dob" style="font-size: 20px;">Age</label><br>
@@ -254,63 +307,64 @@
                 <button onclick="changeAge()" class="commitChangeButton">Update</button><br><br>
                 <button id="deleteButton" class="accDeletionButton" onclick="attemptDeletion()">Delete Account</button>
 
+                <!-- footer -->
+                <footer style="margin-top: 150px;">
+                    <div class="footerContainer" style="font-size: 17px">
+                        <div class="sec aboutUs">
+                            <h2>Discover the Swift Advantage!</h2>
+                                <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
+                                    Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
+                                    </p>
+                                <ul class="sci">
+                                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                                </ul>
+                        </div>
+                        <div class ="sec quickLinks">
+                            <h2>Quick Links</h2>
+                            <ul>
+                                <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
+                                <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
+                                <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
+                                <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
+                            </ul>
+                        </div>
+                        <div class="sec contact">
+                            <h2>Contact Info</h2>
+                            <ul class="info">
+                                <li>
+                                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                                <span>47 Clover Lane,<br>
+                                    Dublin City, County Dublin, D12 AB34, Ireland</span>
+                                </li>
+                            
+                            <li>
+                                <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                                <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
+                                    <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
+                                </li>
+    
+                            <li>
+                                <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                                <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </footer>
+                <div class="copyrightText" style="font-size: 20px;">
+                    <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
+                </div>
+            </div>
                 
             </div>
     </div>
+
    
+
     <div class="spacer" style="width:100px"></div>
 
-    <!-- Footer Section 
-    <footer>
-        <div class="footerContainer">
-            <div class="sec aboutUs" >
-                <h2>Discover the Swift Advantage!</h2>
-                    <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
-                        Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
-                        </p>
-                    <ul class="sci">
-                        <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
-                    </ul>
-            </div>
-            <div class ="sec quickLinks">
-                <h2>Quick Links</h2>
-                <ul>
-                    <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
-                    <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
-                    <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
-                    <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
-                </ul>
-            </div>
-            <div class="sec contact">
-                <h2>Contact Info</h2>
-                <ul class="info">
-                    <li>
-                    <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                    <span>47 Clover Lane,<br>
-                        Dublin City, County Dublin, D12 AB34, Ireland</span>
-                    </li>
-                
-                <li>
-                    <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
-                    <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
-                        <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
-                    </li>
-
-                <li>
-                    <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-    <div class="copyrightText">
-        <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
-    </div>
- -->
-    
 </body>
 </html>
