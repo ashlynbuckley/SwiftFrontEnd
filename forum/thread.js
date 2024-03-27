@@ -71,7 +71,7 @@ async function updateComments(threadId) {
         // Retrieve JWT token from local storage, and check if the Token exists
         const jwToken = localStorage.getItem('jwToken');
         if (!jwToken) {
-            window.location.href = 'signUp.html'; // Redirect to signUp.html
+            window.location.href = '/signUp/signUp.html'; // Redirect to signUp.html
             return;
         }
 
@@ -122,7 +122,7 @@ async function deleteThread() {
                 threadId: threadId,
             }),
         });
-        window.location.href = 'forum.html'; // Redirect to forum.html
+        window.location.href = "/forum/forum.html"; // Redirect to forum.html
         return;
     } catch (error) { console.error('Error deleting Thread! ', error); } 
 }
@@ -141,7 +141,7 @@ async function deleteComment(commentId) {
             commentId: commentId,
         }),
     });
-    window.location.href = 'forum.html'; // Redirect to forum.html
+    window.location.href = "/forum/forum.html"; // Redirect to forum.html
     return;
 } catch (error) { console.error('Error deleting Thread! ', error); } 
 }

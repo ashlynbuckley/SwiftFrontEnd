@@ -41,7 +41,7 @@ function updateThreadList() {
     // Retrieve JWT token from local storage, and check if the Token exists
     const jwToken = localStorage.getItem('jwToken');
     if (!jwToken) {
-        window.location.href = 'signUp.html'; // Redirect to signUp.html
+        window.location.href = '/signUp/signUp.html'; // Redirect to signUp.html
         return;
     }
 
