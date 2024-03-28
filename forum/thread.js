@@ -117,7 +117,7 @@ async function updateComments() {
                 <div class="commentBottom">
                     ${comment.content}
                 </div>
-                <button id="deleteCommentButton" onclick="deleteComment(${
+                <button id="deleteCommentButton" class="timerButton" onclick="deleteComment(${
                   comment.id
                 })"> Delete Comment </button>
             `;
