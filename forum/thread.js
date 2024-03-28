@@ -91,7 +91,7 @@ async function updateComments() {
 
     // Make a GET request to fetch comments for the thread
     const response = await fetch(
-      `http://127.0.0.1:5001/ct216app-22318961/us-central1/getComments/${threadId}`,
+      `https://getcomments-pgktbhms6a-uc.a.run.app/${threadId}`,
       {
         method: "GET",
         headers: {
