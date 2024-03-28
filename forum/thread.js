@@ -1,10 +1,10 @@
-let newComment = document.getElementById("newComment").value.trim();
 let urlParams = new URLSearchParams(window.location.search);
 let threadId = urlParams.get("id");
 
 // Function to add a new Comment
 async function addComment() {
   try {
+    let newComment = document.getElementById("newComment").value.trim();
     // Ensure Input Comment isn't empty
     if (newComment !== "") {
       // Retrieve JWT token from local storage, and check if the Token exists
