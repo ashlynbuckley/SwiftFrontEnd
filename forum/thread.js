@@ -79,6 +79,33 @@ async function refreshThread() {
   }
 }
 
+async function deleteComment(commentId) {
+  try {
+    // Retrieve JWT token from local storage, and check if the Token exists
+    const jwToken = localStorage.getItem("jwToken-access");
+    if (!jwToken) {
+      console.error("JWT Token not found!");
+      return;
+    }
+    // Make a POST request to add a new comment
+    await fetch(`https://deletecomment-pgktbhms6a-uc.a.run.app/`, {
+      method: "POST",
+      // Request is in JSON format
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${jwToken}`,
+      },
+      body: JSON.stringify({
+        commentId: commentId,
+      }),
+    });
+    window.location.href = "/forum/forum.html"; // Redirect to forum.html
+    return;
+  } catch (error) {
+    console.error("Error deleting Thread! ", error);
+  }
+}
+
 // Function to update the Comments display
 async function updateComments() {
   try {
@@ -117,9 +144,7 @@ async function updateComments() {
                 <div class="commentBottom">
                     ${comment.content}
                 </div>
-                <button id="deleteCommentButton" onclick="deleteComment(${
-                  comment.id
-                })"> Delete Comment </button>
+                <button id="deleteCommentButton" onclick="deleteComment(${comment.id})"> Delete Comment </button>
             `;
       commentList.appendChild(li);
     });
@@ -151,33 +176,6 @@ async function deleteThread() {
       },
       body: JSON.stringify({
         threadId: threadId,
-      }),
-    });
-    window.location.href = "/forum/forum.html"; // Redirect to forum.html
-    return;
-  } catch (error) {
-    console.error("Error deleting Thread! ", error);
-  }
-}
-
-async function deleteComment(commentId) {
-  try {
-    // Retrieve JWT token from local storage, and check if the Token exists
-    const jwToken = localStorage.getItem("jwToken-access");
-    if (!jwToken) {
-      console.error("JWT Token not found!");
-      return;
-    }
-    // Make a POST request to add a new comment
-    await fetch(`https://deletecomment-pgktbhms6a-uc.a.run.app/`, {
-      method: "POST",
-      // Request is in JSON format
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${jwToken}`,
-      },
-      body: JSON.stringify({
-        commentId: commentId,
       }),
     });
     window.location.href = "/forum/forum.html"; // Redirect to forum.html
