@@ -147,8 +147,15 @@ async function updateComments() {
                 <button id="deleteCommentButton"> Delete Comment </button>
             `;
       commentList.appendChild(li);
-      // Add event listener to delete button
-      li.querySelector(".deleteCommentButton").addEventListener("click", () => { deleteComment(comment.id); });
+
+      // Select the delete button inside the li element
+      const deleteButton = li.querySelector(".deleteCommentButton");
+
+      // Check if delete button exists before adding event listener
+      if (deleteButton) {
+        // Add event listener to delete button
+        deleteButton.addEventListener("click", () => { deleteComment(comment.id); });
+      }
     });
 
     // Update Comment Count
