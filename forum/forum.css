@@ -63,3 +63,8 @@
     font-size: 40px;
 }
 
+
+.threadLink a:visited{
+    color: white;
+    text-decoration: none;
+}
