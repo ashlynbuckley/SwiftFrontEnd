@@ -31,7 +31,12 @@
 }
 .signUpComplete {
     text-align:center;
-    color: white;
+    background-color: white;
     font-size: 25px;
-    padding-top: 250px;
+    padding-top: 30px;
+    margin-top: 200px;
+    height:300px;
+    width:600px;
+    margin-left: 300px;
+    border-radius: 30px;
 }
