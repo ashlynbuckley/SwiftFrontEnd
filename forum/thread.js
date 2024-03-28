@@ -1,5 +1,6 @@
 let newComment = document.getElementById("newComment").value.trim();
 let urlParams = new URLSearchParams(window.location.search);
+let threadId = urlParams.get("id");
 
 // Function to add a new Comment
 async function addComment() {
