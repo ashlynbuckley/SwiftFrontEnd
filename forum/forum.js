@@ -57,11 +57,11 @@ function updateThreadList() {
                 let commentCount = thread.comments ? thread.comments.length : 0;
                 li.innerHTML = `
                 <a id="threadLink" href='thread.html?id=${thread.id}'>
-                    <h4 class="title">${thread.title}</h4>
+                    <h4 class="title" >${thread.title}</h4>
                     <div class="bottom">
                         <p class="author">Posted by ${thread.author}</p>
                         <p class="timestamp">On ${new Date(thread.timestamp).toLocaleString()}</p>
-                        <p class="comment_count">Comments: ${commentCount}</p>
+                        <p class="comment_count" style="margin-bottom:25px">Comments: ${commentCount}</p>
                     </div>
                 </a>
             `;
