@@ -144,7 +144,7 @@ async function updateComments() {
                 <div class="commentBottom">
                     ${comment.content}
                 </div>
-                <button id="deleteCommentButton" onclick="deleteComment(${comment.id})"> Delete Comment </button>
+                <button id="deleteCommentButton" onclick="deleteComment('${comment.id}')"> Delete Comment </button>
             `;
       commentList.appendChild(li);
     });
