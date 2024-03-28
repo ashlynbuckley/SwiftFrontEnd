@@ -51,22 +51,17 @@ async function refreshThread() {
             },
         });
         const allThreads = await response.json();
-        const threadData = allThreads.find(thread => thread.id === threadId);
+        const threadData = allThreads.find(thread => thread.id == threadId);
 
         // Ensure Thread data is received
         if (threadData) {
             document.getElementById('threadTitle').innerText = threadData.title;
-            document.getElementById('threadAuthor').innerText = `Posted by ${threadData.author}`;
-            document.getElementById('threadContent').innerText = threadData.content;
-
+            document.getElementById('threadAuthor').innerText = `Posted by ${threadData.author} on ${threadData.timestamp}`;
+            document.getElementById('threadBody').innerText = threadData.content;
             // Call updateComments with threadId
             updateComments();
-        } else {
-            console.log('Thread ' + threadId + ' not found!');
-        }
-    } catch (error) {
-        console.error('Error updating Thread! ', error);
-    }
+        } else { console.log('Thread ' + threadId + ' not found!'); }
+    } catch (error) { console.error('Error updating Thread! ', error); }
 }
 
 // Function to update the Comments display
@@ -80,7 +75,7 @@ async function updateComments() {
         }
 
         // Make a GET request to fetch comments for the thread
-        const response = await fetch(`https://getcomments-pgktbhms6a-uc.a.run.app${threadId}/`, {
+        const response = await fetch(`https://getcomments-pgktbhms6auc.a.run.app/${threadId}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -97,7 +92,7 @@ async function updateComments() {
             const li = document.createElement('li');
             li.innerHTML = `
                 <div class="commentTop">
-                    By ${comment.author} - ${new Date(comment.timestamp).toLocaleString()}
+                    By ${comment.author} on ${new Date(comment.timestamp).toLocaleString()}
                 </div>
                 <div class="commentBottom">
                     ${comment.content}
@@ -120,9 +115,9 @@ async function deleteThread() {
             console.error('JWT Token not found!');
             return;
         }
-            // Make a GET request to add a new comment
+            // Make a POST request to add a new comment
         await fetch(`https://deletethread-pgktbhms6a-uc.a.run.app/`, {
-            method: 'GET',
+            method: 'POST',
             // Request is in JSON format
             headers: {
                 'Content-Type': 'application/json',
@@ -145,9 +140,9 @@ async function deleteComment(commentId) {
             console.error('JWT Token not found!');
             return;
         }
-        // Make a GET request to add a new comment
+        // Make a POST request to add a new comment
     await fetch(`https://deletecomment-pgktbhms6a-uc.a.run.app/`, {
-        method: 'GET',
+        method: 'POST',
         // Request is in JSON format
         headers: {
             'Content-Type': 'application/json',
@@ -164,7 +159,8 @@ async function deleteComment(commentId) {
 
 document.getElementById('deleteThreadButton').addEventListener('click', deleteThread);
 document.getElementById('addCommentButton').addEventListener('click', addComment);
-refreshThread();
+document.addEventListener('DOMContentLoaded',  refreshThread);
+
 
 //dynamic navbar
 function loggedin() {
