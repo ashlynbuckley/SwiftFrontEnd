@@ -56,7 +56,7 @@ function updateThreadList() {
                 let li = document.createElement('li');
                 let commentCount = thread.comments ? thread.comments.length : 0;
                 li.innerHTML = `
-                <a href='thread.html?id=${thread.id}'>
+                <a id="threadLink" href='thread.html?id=${thread.id}'>
                     <h4 class="title">${thread.title}</h4>
                     <div class="bottom">
                         <p class="author">Posted by ${thread.author}</p>
