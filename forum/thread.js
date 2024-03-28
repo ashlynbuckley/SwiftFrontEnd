@@ -15,7 +15,7 @@ async function addComment() {
             }
 
             // Make a POST request to add a new comment
-            await fetch(`https://createthread-pgktbhms6a-uc.a.run.app/`, {
+            await fetch(`https://createcomment-pgktbhms6a-uc.a.run.app`, {
                 method: 'POST',
                 // Request is in JSON format
                 headers: {
@@ -23,7 +23,7 @@ async function addComment() {
                     'Authorization': `Bearer ${jwToken}`,
                 },
                 body: JSON.stringify({
-                    threadId: threadId,
+                    id: threadId,
                     content: newComment
                 }),
             });
@@ -36,22 +36,22 @@ async function addComment() {
 }
 
 // Function to update Thread Data
-async function refreshThread() {
+function refreshThread() {
     try {
         // Retrieve JWT token from local storage, and check if the Token exists
         const jwToken = localStorage.getItem('jwToken-access');
         if (!jwToken) { return; }
 
-        // Make a GET request to fetch thread data
-        const response = await fetch('https://getthreads-pgktbhms6a-uc.a.run.app/', {
+        // Fetch thread data using the provided GET method that retrives Every thread
+        fetch ('https://getthreads-pgktbhms6a-uc.a.run.app/', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
                 'Authorization': `Bearer ${jwToken}`,
             },
         });
-        const allThreads = await response.json();
-        const threadData = allThreads.find(thread => thread.id == threadId);
+        const allThreads = response.json();
+        const threadData = allThreads.find(thread => thread.id === threadId)
 
         // Ensure Thread data is received
         if (threadData) {
@@ -75,7 +75,7 @@ async function updateComments() {
         }
 
         // Make a GET request to fetch comments for the thread
-        const response = await fetch(`https://getcomments-pgktbhms6auc.a.run.app/${threadId}/`, {
+        const response = await fetch(`https://getcomments-pgktbhms6auc.a.run.app/${threadId}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -108,6 +108,13 @@ async function updateComments() {
 }
 
 async function deleteThread() {
+    // Retrieve JWT token from local storage, and check if the Token exists
+    const jwToken = localStorage.getItem('jwToken-access');
+    if (!jwToken) {
+        console.error('JWT Token not found!');
+        return;
+    }
+    
     try {
         // Retrieve JWT token from local storage, and check if the Token exists
         const jwToken = localStorage.getItem('jwToken-access');
@@ -124,7 +131,7 @@ async function deleteThread() {
                 'Authorization': `Bearer ${jwToken}`,
             },
             body: JSON.stringify({
-                threadId: threadId,
+                id: threadId,
             }),
         });
         window.location.href = "/forum/forum.html"; // Redirect to forum.html
@@ -133,6 +140,13 @@ async function deleteThread() {
 }
 
 async function deleteComment(commentId) {
+    // Retrieve JWT token from local storage, and check if the Token exists
+    const jwToken = localStorage.getItem('jwToken-access');
+    if (!jwToken) {
+        console.error('JWT Token not found!');
+        return;
+    }
+
     try {
         // Retrieve JWT token from local storage, and check if the Token exists
         const jwToken = localStorage.getItem('jwToken-access');
