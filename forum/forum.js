@@ -60,8 +60,7 @@ function updateThreadList() {
                     <h4 class="title" >${thread.title}</h4>
                     <div class="bottom">
                         <p class="author">Posted by ${thread.author}</p>
-                        <p class="timestamp">On ${new Date(thread.timestamp).toLocaleString()}</p>
-                        <p class="comment_count" style="margin-bottom:25px">Comments: ${commentCount}</p>
+                        <p class="timestamp" style="margin-bottom:25px">On ${new Date(thread.timestamp).toLocaleString()}</p>
                     </div>
                 </a>
             `;

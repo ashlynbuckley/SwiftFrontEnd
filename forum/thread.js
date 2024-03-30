@@ -81,6 +81,7 @@ async function refreshThread() {
 
 async function deleteComment(commentId) {
   try {
+    console.log("Delete Function");
     // Retrieve JWT token from local storage, and check if the Token exists
     const jwToken = localStorage.getItem("jwToken-access");
     if (!jwToken) {
@@ -99,8 +100,7 @@ async function deleteComment(commentId) {
         commentId: commentId,
       }),
     });
-    window.location.href = "/forum/forum.html"; // Redirect to forum.html
-    return;
+    refreshThread();
   } catch (error) {
     console.error("Error deleting Thread! ", error);
   }
@@ -149,7 +149,7 @@ async function updateComments() {
       commentList.appendChild(li);
 
       // Select the delete button inside the li element
-      const deleteButton = li.querySelector(".deleteCommentButton");
+      const deleteButton = document.getElementById('deleteCommentButton'+comment.id)
 
       // Check if delete button exists before adding event listener
       if (deleteButton) {
